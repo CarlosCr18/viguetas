@@ -4,7 +4,13 @@
 }
 
 .App {
+  padding-block: 3rem;
+  min-height: 100vh;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .App-logo {
@@ -19,28 +25,16 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  min-height: 25vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 1.75vmin);
-  color: white;
+  color: black;
   gap: 1rem;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  padding: 3rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .inputsContainer {
@@ -59,4 +53,43 @@
 
 .viguetasContainer {
   position: relative;
+}
+
+.viguetasContainer::after {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  content: "→";
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.muroExterior {
+  position: absolute;
+  left: -15px;
+  top: -15px;
+  width: calc(100% + 30px);
+  height: calc(100% + 30px);
+  outline: solid 2px green;
+}
+
+.anchoDeMedida {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateY(175%) translateX(-50%);
+}
+.largoDeMedida {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateX(-150%) translateY(-50%);
+}
+
+.InformacionContainer {
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  align-items: flex-start;
 }

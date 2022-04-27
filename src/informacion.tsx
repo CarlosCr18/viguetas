@@ -28,7 +28,7 @@ const Informacion: React.FC<Props> = ({
           : "viguetas: " + cantidadDeViguetas}
       </p>
       <p>{"Bovedillas: " + cantidadDeBovedillas * 1.1}</p>
-      <p>{"malla: " + malla * 1.2}</p>
+      <p>{"malla: " + malla * 1.2 + " m^2"}</p>
     </div>
   );
 };
