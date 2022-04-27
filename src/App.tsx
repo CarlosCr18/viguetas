@@ -8,7 +8,7 @@ function App() {
   const [ancho, setAncho] = React.useState(0);
   const [largo, setLargo] = React.useState(0);
   const [bovedillaDeConcreto, setBovedillaDeConcreto] = React.useState(false);
-  const [viguetaInicial, setViguetaInicial] = React.useState(true);
+  const [viguetaInicial, setViguetaInicial] = React.useState(false);
   const [cantidadDeViguetas, setCantidadDeViguetas] = React.useState(0);
   return (
     <div className="App">
