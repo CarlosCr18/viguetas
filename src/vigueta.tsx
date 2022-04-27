@@ -23,9 +23,11 @@ const Vigueta: React.FC<Props> = ({
     : Math.trunc(ancho / (distanciaEntreViguetas + 12));
   setCantidadDeViguetas(cantidadDeViguetas);
   const largoDeVigueta: number =
-    largo % 10 > 5
+    largo % 10 >= 5
       ? Math.round(largo / 10) * 10 + 10
       : Math.round(largo / 10) * 10 + 20;
+
+  const margenTop: number = (largo - largoDeVigueta) / 2 - 2;
   const viguetaStyle = {
     width: "12px",
     "min-width": "12px",
@@ -37,7 +39,7 @@ const Vigueta: React.FC<Props> = ({
     placeItems: "center",
     fontSize: "14px",
     marginLeft: distanciaEntreViguetas + "px",
-    marginTop: "-8px",
+    marginTop: margenTop,
     paddingLeft: "12px",
   };
   const viguetaInicial = {
