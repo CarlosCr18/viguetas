@@ -65,7 +65,7 @@ const Vigueta: React.FC<Props> = ({
   for (let i = 0; i < cantidadDeViguetas; i++) {
     arrayDeViguetas[i] = (
       <div className="vigueta" key={i + "Vigueta"} style={viguetaStyle}>
-        {largoDeVigueta}
+        {largoDeVigueta / 100 + " m"}
       </div>
     );
   }
