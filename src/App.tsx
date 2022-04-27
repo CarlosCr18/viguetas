@@ -27,14 +27,15 @@ function App() {
           inicial={viguetaInicial}
         />
       </header>
-
-      <Vigueta
-        ancho={ancho}
-        largo={largo}
-        concreto={bovedillaDeConcreto}
-        inicial={viguetaInicial}
-        setCantidadDeViguetas={setCantidadDeViguetas}
-      />
+      <div className="App-vigueta">
+        <Vigueta
+          ancho={ancho}
+          largo={largo}
+          concreto={bovedillaDeConcreto}
+          inicial={viguetaInicial}
+          setCantidadDeViguetas={setCantidadDeViguetas}
+        />
+      </div>
     </div>
   );
 }

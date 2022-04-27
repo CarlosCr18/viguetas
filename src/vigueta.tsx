@@ -40,7 +40,7 @@ const Vigueta: React.FC<Props> = ({
     fontSize: "14px",
     marginLeft: distanciaEntreViguetas + "px",
     marginTop: margenTop,
-    paddingLeft: "12px",
+    fontWeight: "bold",
   };
   const viguetaInicial = {
     width: "12px",
@@ -53,7 +53,7 @@ const Vigueta: React.FC<Props> = ({
     placeItems: "center",
     fontSize: "14px",
     marginLeft: 0 + "px",
-    marginTop: "-8px",
+    marginTop: margenTop,
   };
   const viguetasContainerStyle = {
     width: ancho + "px",
