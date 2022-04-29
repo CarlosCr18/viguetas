@@ -2,6 +2,16 @@
 *::after {
   box-sizing: border-box;
 }
+:root {
+  --escala: 0.5;
+}
+body {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  place-items: center;
+}
 
 .App {
   text-align: center;
@@ -38,6 +48,7 @@
 
 .viguetasContainer {
   position: relative;
+  display: flex;
 }
 
 .viguetasContainer::after {
@@ -83,9 +94,11 @@
   display: grid;
   max-width: 100%;
   margin-block: 2rem !important;
-  place-content: center !important;
+  margin-inline: 0;
+  place-content: start !important;
   place-items: center;
   padding: 2rem;
+  transform: scale(var(--escala));
 }
 
 .tipoDeBovedillaInformacion {
@@ -97,20 +110,19 @@
 .InformacionMaterialContainer {
   text-align: start;
 }
+.sliderContainer {
+  padding: 2rem;
+  width: min(90%, 30rem);
+  display: flex;
+  flex-direction: column;
+}
 
-@media (max-width: 568px) {
-  body {
-    width: 100vw;
-    display: flex;
-    place-content: center;
-    place-items: center;
-  }
+@media (max-width: 815px) {
   .App-header {
     display: grid;
   }
   .Appvigueta {
     max-width: 90%;
-    transform-origin: right;
-    place-content: start !important;
+    transform-origin: right top;
   }
 }

@@ -61,6 +61,21 @@ function App() {
         <InformacionDeBovedilla tipoDeBovedilla={tipoDeBovedilla} />
       </header>
       <body>
+        <div className="sliderContainer">
+          <label htmlFor="slider">Cambiar zoom </label>
+          <input
+            id="slider"
+            type="range"
+            min="30"
+            max="100"
+            onChange={({ target }) => {
+              document.documentElement.style.setProperty(
+                `--escala`,
+                "" + parseInt(target.value) / 100
+              );
+            }}
+          ></input>
+        </div>
         <div className="Appvigueta">
           <Vigueta
             ancho={ancho}

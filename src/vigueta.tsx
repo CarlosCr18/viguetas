@@ -71,7 +71,6 @@ const Vigueta: React.FC<Props> = ({
     width: ancho + "px",
     height: largo + "px",
     outline: "2px solid black",
-    display: "flex",
   };
 
   let arrayDeViguetas: any = [];
