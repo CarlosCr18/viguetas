@@ -83,7 +83,7 @@
   display: grid;
   max-width: 100%;
   margin-block: 2rem !important;
-  place-content: start !important;
+  place-content: center !important;
   place-items: center;
   padding: 2rem;
 }
@@ -111,5 +111,6 @@
   .Appvigueta {
     max-width: 90%;
     transform-origin: right;
+    place-content: start !important;
   }
 }
