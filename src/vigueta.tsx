@@ -1,23 +1,34 @@
 import React from "react";
 import "./App.css";
 
+export interface TipoDeBovedilla {
+  nombre: string;
+  material: string;
+  alto: number;
+  ancho: number;
+  largo: number;
+  efectivo: number;
+}
+
 export type Props = {
   ancho: number;
   largo: number;
-  concreto: boolean;
+  tipoDeBovedilla: TipoDeBovedilla;
   inicial: boolean;
   setCantidadDeViguetas(value: number): void;
+  setLargoDeViguetas(value: number): void;
 };
 const Vigueta: React.FC<Props> = ({
   ancho = 0,
   largo = 0,
-  concreto = false,
+  tipoDeBovedilla,
   inicial = false,
   setCantidadDeViguetas,
+  setLargoDeViguetas,
 }) => {
   const mayorLongitud: number = ancho > largo ? ancho : largo;
   const menorLongitud: number = ancho < largo ? ancho : largo;
-  const distanciaEntreViguetas = concreto ? 58 : 78;
+  const distanciaEntreViguetas: number = tipoDeBovedilla.efectivo;
   const cantidadDeViguetas = inicial
     ? Math.trunc((ancho - 12) / (distanciaEntreViguetas + 12))
     : Math.trunc(ancho / (distanciaEntreViguetas + 12));
@@ -26,6 +37,7 @@ const Vigueta: React.FC<Props> = ({
     largo % 10 >= 5
       ? Math.round(largo / 10) * 10 + 10
       : Math.round(largo / 10) * 10 + 20;
+  setLargoDeViguetas(largoDeVigueta);
 
   const margenTop: number = (largo - largoDeVigueta) / 2 - 2;
   const viguetaStyle = {
@@ -58,8 +70,7 @@ const Vigueta: React.FC<Props> = ({
   const viguetasContainerStyle = {
     width: ancho + "px",
     height: largo + "px",
-    border: "2px solid black",
-    margin: "2rem",
+    outline: "2px solid black",
     display: "flex",
   };
 

@@ -1,34 +1,65 @@
 import React from "react";
 
+export interface TipoDeBovedilla {
+  nombre: string;
+  material: string;
+  alto: number;
+  ancho: number;
+  largo: number;
+  efectivo: number;
+}
 export type Props = {
   cantidadDeViguetas: number;
   ancho: number;
   largo: number;
-  bovedillaDeConcreto: boolean;
+  tipoDeBovedilla: TipoDeBovedilla;
   inicial: boolean;
+  largoDeVigueta: number;
+  cantidadDeHileras: number;
 };
 
 const Informacion: React.FC<Props> = ({
-  cantidadDeViguetas = 0,
-  ancho = 0,
-  largo = 0,
-  bovedillaDeConcreto = false,
+  cantidadDeViguetas,
+  ancho,
+  largo,
+  tipoDeBovedilla: TipoDeBovedilla,
   inicial = false,
+  largoDeVigueta,
+  cantidadDeHileras,
 }) => {
-  const area: number = ancho * largo;
   const malla: number = (ancho / 100) * (largo / 100);
+  /*
   const cantidadDeBovedillas: number = bovedillaDeConcreto
     ? (area - cantidadDeViguetas * 12 * largo) / (58 * 300)
-    : (area - cantidadDeViguetas * 12 * largo) / (78 * 150);
+    : (area - cantidadDeViguetas * 12 * largo) / (78 * 150);*/
+  const cantidadDeBovedillas: number =
+    (largoDeVigueta / TipoDeBovedilla.largo) * cantidadDeHileras;
+
   return (
     <div className="InformacionContainer">
-      <p>
-        {inicial
-          ? "viguetas: " + (cantidadDeViguetas + 1)
-          : "viguetas: " + cantidadDeViguetas}
-      </p>
-      <p>{"Bovedillas: " + cantidadDeBovedillas * 1.1}</p>
-      <p>{"malla: " + malla * 1.2 + " m^2"}</p>
+      <h2>Presupuesto del proyecto</h2>
+      <div className="InformacionMaterialContainer">
+        <h3>Viguetas</h3>
+        <p>
+          {inicial
+            ? cantidadDeViguetas +
+              1 +
+              " piezas de " +
+              largoDeVigueta / 100 +
+              "m"
+            : cantidadDeViguetas + " piezas de " + largoDeVigueta / 100 + "m"}
+        </p>
+      </div>
+      <div className="InformacionMaterialContainer">
+        <h3>Bovedillas</h3>
+        <p> Cantidad de hileras: {cantidadDeHileras}</p>
+        <p>{cantidadDeBovedillas.toFixed(2) + "Piezas"}</p>
+      </div>
+      <div className="InformacionMaterialContainer">
+        <h3>Malla</h3>
+        <p>{"Area: " + malla + " m^2"}</p>
+        <p>{"Cantidad: " + (malla * 1.1).toFixed(2) + " m^2"}</p>
+      </div>
     </div>
   );
 };

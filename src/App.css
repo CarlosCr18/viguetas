@@ -4,36 +4,22 @@
 }
 
 .App {
-  padding-block: 3rem;
-  min-height: 100vh;
   text-align: center;
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
-  min-height: 25vh;
+  width: 100%;
+  max-width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 2rem;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 1.75vmin);
   color: black;
-  gap: 1rem;
-  padding: 3rem;
+  gap: 2rem;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
@@ -45,8 +31,7 @@
 
 .inputsDiv {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
+  justify-content: flex-start;
   gap: 0.3rem;
   padding: 0.5rem;
 }
@@ -94,18 +79,37 @@
   align-items: flex-start;
 }
 
-.App-vigueta {
-  margin-block: 2rem;
+.Appvigueta {
+  display: grid;
+  max-width: 100%;
+  margin-block: 2rem !important;
+  place-content: start !important;
+  place-items: center;
+  padding: 2rem;
 }
-@media (max-width: 568px) {
-  .App-vigueta {
-    max-width: 100%;
-    margin-left: -2rem;
-    transform: scale(0.6);
-  }
 
-  .App-vigueta > div {
-    margin: 0;
-    padding: 0;
+.tipoDeBovedillaInformacion {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.InformacionMaterialContainer {
+  text-align: start;
+}
+
+@media (max-width: 568px) {
+  body {
+    width: 100vw;
+    display: flex;
+    place-content: center;
+    place-items: center;
+  }
+  .App-header {
+    display: grid;
+  }
+  .Appvigueta {
+    max-width: 90%;
+    transform-origin: right;
   }
 }
