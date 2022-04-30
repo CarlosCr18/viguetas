@@ -4,6 +4,8 @@
 }
 :root {
   --escala: 0.5;
+  --izquierda: 0;
+  --top: 0;
 }
 body {
   width: 100vw;
@@ -11,6 +13,7 @@ body {
   flex-direction: column;
   place-content: center;
   place-items: center;
+  position: relative;
 }
 
 .App {
@@ -98,7 +101,8 @@ body {
   place-content: start !important;
   place-items: center;
   padding: 2rem;
-  transform: scale(var(--escala));
+  transform: scale(var(--escala)) translateY(var(--izquierda))
+    translateX(var(--top)) !important;
 }
 
 .tipoDeBovedillaInformacion {
@@ -110,11 +114,24 @@ body {
 .InformacionMaterialContainer {
   text-align: start;
 }
+
+.controlesDePlanoContainer {
+  padding: 2rem;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
 .sliderContainer {
   padding: 2rem;
   width: min(90%, 30rem);
   display: flex;
   flex-direction: column;
+}
+.botonesContainer {
+  max-width: 8rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
 }
 
 @media (max-width: 815px) {

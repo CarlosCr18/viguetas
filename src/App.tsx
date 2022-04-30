@@ -4,6 +4,7 @@ import Vigueta from "./vigueta";
 import FormDeViguetas from "./form";
 import Informacion from "./informacion";
 import InformacionDeBovedilla from "./informacionDeBovedilla";
+import ControlesDePlano from "./controlesDePlano";
 
 export interface TipoDeBovedilla {
   nombre: string;
@@ -61,21 +62,7 @@ function App() {
         <InformacionDeBovedilla tipoDeBovedilla={tipoDeBovedilla} />
       </header>
       <body>
-        <div className="sliderContainer">
-          <label htmlFor="slider">Cambiar zoom </label>
-          <input
-            id="slider"
-            type="range"
-            min="30"
-            max="100"
-            onChange={({ target }) => {
-              document.documentElement.style.setProperty(
-                `--escala`,
-                "" + parseInt(target.value) / 100
-              );
-            }}
-          ></input>
-        </div>
+        <ControlesDePlano />
         <div className="Appvigueta">
           <Vigueta
             ancho={ancho}
