@@ -25,7 +25,6 @@ body {
 
 .App-header {
   width: 100%;
-  max-width: 100%;
   display: flex;
   padding: 2rem;
   flex-direction: row;
@@ -33,21 +32,26 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   color: black;
-  gap: 2rem;
+  gap: 10%;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .inputsContainer {
   display: grid;
   place-content: center;
-  place-items: flex-start;
+  place-items: center;
 }
 
 .inputsDiv {
   display: flex;
   justify-content: flex-start;
+  width: 100%;
   gap: 0.3rem;
   padding: 0.5rem;
+}
+
+.labelInput {
+  width: 50%;
 }
 
 .viguetasContainer {
@@ -91,7 +95,8 @@ body {
   display: flex;
   flex-direction: column;
   align-self: start;
-  align-items: flex-start;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .Appvigueta {
@@ -114,22 +119,28 @@ body {
 }
 .InformacionMaterialContainer {
   text-align: start;
+  padding: 1rem;
+  width: 75%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .controlesDePlanoContainer {
+  width: 100vw;
   padding: 2rem;
   display: flex;
   flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
 }
 
 .sliderContainer {
-  padding: 2rem;
-  width: min(90%, 30rem);
   display: flex;
   flex-direction: column;
 }
 .botonesContainer {
   max-width: 8rem;
+  z-index: 5 !important;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -138,6 +149,9 @@ body {
 @media (max-width: 815px) {
   .App-header {
     display: grid;
+    gap: 2rem;
+    place-content: center;
+    place-items: center;
   }
   .Appvigueta {
     max-width: 90%;

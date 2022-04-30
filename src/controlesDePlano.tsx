@@ -36,7 +36,7 @@ const ControlesDePlano: React.FC = () => {
               setValorX(valorX - 10);
             }}
           >
-            ↖
+            🢄
           </Button>
           <Button
             variant="outline-success"
@@ -45,7 +45,7 @@ const ControlesDePlano: React.FC = () => {
               setValorY(valorY - 10);
             }}
           >
-            ↑
+            🢁
           </Button>
           <Button
             variant="outline-success"
@@ -55,7 +55,7 @@ const ControlesDePlano: React.FC = () => {
               setValorX(valorX + 10);
             }}
           >
-            ↗
+            🢅
           </Button>
           <Button
             variant="outline-success"
@@ -64,10 +64,10 @@ const ControlesDePlano: React.FC = () => {
               setValorX(valorX - 10);
             }}
           >
-            ←
+            🢀
           </Button>
-          <Button variant="secondary" size="lg" disabled>
-            O
+          <Button className="bg-success" variant="secondary" size="lg" disabled>
+            {" "}
           </Button>
           <Button
             variant="outline-success"
@@ -76,7 +76,7 @@ const ControlesDePlano: React.FC = () => {
               setValorX(valorX + 10);
             }}
           >
-            →
+            🢂
           </Button>
           <Button
             variant="outline-success"
@@ -86,7 +86,7 @@ const ControlesDePlano: React.FC = () => {
               setValorX(valorX - 10);
             }}
           >
-            ↙
+            🢇
           </Button>
           <Button
             variant="outline-success"
@@ -95,7 +95,7 @@ const ControlesDePlano: React.FC = () => {
               setValorY(valorY + 10);
             }}
           >
-            ↓
+            🢃
           </Button>
           <Button
             variant="outline-success"
@@ -105,7 +105,7 @@ const ControlesDePlano: React.FC = () => {
               setValorX(valorX + 10);
             }}
           >
-            ↘
+            🢆
           </Button>
         </div>
       </div>

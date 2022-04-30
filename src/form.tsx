@@ -95,45 +95,44 @@ const FormDeViguetas: React.FC<Props> = ({
   ];
 
   return (
-    <Form className="inputsContainer">
+    <Form>
       <h2>Dimensiones del proyecto</h2>
-      <div className="inputsDiv">
-        <Form.Label>Lado mayor</Form.Label>
-        <Form.Control
-          type="number"
-          placeholder="Ancho"
-          onChange={({ target }) => {
-            setAncho(parseInt(target.value));
-          }}
-        ></Form.Control>
-      </div>
-      <div className="inputsDiv">
-        <Form.Label>Lado menor</Form.Label>
-        <Form.Control
-          type="number"
-          placeholder="Largo"
-          onChange={({ target }) => {
-            setLargo(parseInt(target.value));
-          }}
-        ></Form.Control>
-      </div>
-      <div className="inputsDiv">
-        <Form.Label>Tipo de bovedilla</Form.Label>
-        <Form.Select
-          size="lg"
-          onChange={({ target }: any) => {
-            setTipoDeBovedilla(arrayDeTipoDeBovedilla[target.value]);
-          }}
-        >
-          {arrayDeTipoDeBovedilla.map((element, index) => {
-            return <option value={index}>{element.nombre}</option>;
-          })}
-        </Form.Select>
-      </div>
-      <div className="inputsDiv">
-        <Form.Label htmlFor="cantidadDeHilerasCheckbox">
-          Sumar una hilera
-          <input
+      <div className="inputsContainer">
+        <div className="inputsDiv">
+          <Form.Label className="labelInput">Lado mayor</Form.Label>
+          <Form.Control
+            type="number"
+            placeholder="Centimetros"
+            onChange={({ target }) => {
+              setAncho(parseInt(target.value));
+            }}
+          ></Form.Control>
+        </div>
+        <div className="inputsDiv">
+          <Form.Label className="labelInput">Lado menor</Form.Label>
+          <Form.Control
+            type="number"
+            placeholder="Centimetros"
+            onChange={({ target }) => {
+              setLargo(parseInt(target.value));
+            }}
+          ></Form.Control>
+        </div>
+        <div className="inputsDiv">
+          <Form.Label className="labelInput">Tipo de bovedilla</Form.Label>
+          <Form.Select
+            onChange={({ target }: any) => {
+              setTipoDeBovedilla(arrayDeTipoDeBovedilla[target.value]);
+            }}
+          >
+            {arrayDeTipoDeBovedilla.map((element, index) => {
+              return <option value={index}>{element.nombre}</option>;
+            })}
+          </Form.Select>
+        </div>
+        <div className="inputsDiv">
+          <Form.Check
+            label="Sumar una hilera al presupuesto"
             id="cantidadDeHilerasCheckbox"
             type="checkbox"
             onChange={({ target }) => {
@@ -142,17 +141,17 @@ const FormDeViguetas: React.FC<Props> = ({
                 : setCantidadDeHileras(cantidadDeViguetas);
             }}
           />
-        </Form.Label>
-      </div>
-      <div className="inputsDiv">
-        <Form.Label htmlFor="viguetaInicial">Vigueta Inicial</Form.Label>
-        <Form.Check
-          id="viguetaInicial"
-          type="checkbox"
-          onChange={({ target }) => {
-            setInicial(target.checked);
-          }}
-        />
+        </div>
+        <div className="inputsDiv">
+          <Form.Check
+            label="Agregar vigueta Inicial"
+            id="viguetaInicial"
+            type="checkbox"
+            onChange={({ target }) => {
+              setInicial(target.checked);
+            }}
+          />
+        </div>
       </div>
     </Form>
   );

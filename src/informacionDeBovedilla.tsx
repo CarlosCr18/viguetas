@@ -1,4 +1,5 @@
 import React from "react";
+import { Form } from "react-bootstrap";
 
 export interface TipoDeBovedilla {
   nombre: string;
@@ -18,21 +19,23 @@ const InformacionDeBovedilla: React.FC<Props> = ({
   return (
     <div className="tipoDeBovedillaInformacion">
       <h2>Informacion de Bovedilla</h2>
-      <label htmlFor="tipoDeBovedillaInformacionShow">
-        {mostrarInformacion ? (
-          <strong>Ocultar informacion</strong>
-        ) : (
-          <strong>Mostrar informacion</strong>
-        )}
-        <input
-          checked={mostrarInformacion}
-          type="checkbox"
-          id="tipoDeBovedillaInformacionShow"
-          onChange={({ target }) => {
-            setMostrarInformacion(target.checked);
-          }}
-        />
-      </label>
+
+      <Form.Check
+        checked={mostrarInformacion}
+        label={
+          mostrarInformacion ? (
+            <strong>Mostrando informacion</strong>
+          ) : (
+            <strong>Ocultando informacion</strong>
+          )
+        }
+        type="switch"
+        id="tipoDeBovedillaInformacionShow"
+        onChange={({ target }) => {
+          setMostrarInformacion(target.checked);
+        }}
+      />
+      <p> </p>
       {mostrarInformacion ? (
         <>
           <p>

@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.css";
 import Vigueta from "./vigueta";
 import FormDeViguetas from "./form";
 import Informacion from "./informacion";
