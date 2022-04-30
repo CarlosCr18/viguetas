@@ -53,7 +53,11 @@ const Informacion: React.FC<Props> = ({
       <div className="InformacionMaterialContainer">
         <h3>Bovedillas</h3>
         <p> Cantidad de hileras: {cantidadDeHileras}</p>
-        <p>{cantidadDeBovedillas.toFixed(2) + "Piezas"}</p>
+        <p>
+          {cantidadDeBovedillas.toFixed(2) +
+            " Piezas de " +
+            TipoDeBovedilla.nombre}
+        </p>
       </div>
       <div className="InformacionMaterialContainer">
         <h3>Malla</h3>
