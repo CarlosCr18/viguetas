@@ -26,13 +26,13 @@ const Vigueta: React.FC<Props> = ({
   setCantidadDeViguetas,
   setLargoDeViguetas,
 }) => {
-  const mayorLongitud: number = ancho > largo ? ancho : largo;
-  const menorLongitud: number = ancho < largo ? ancho : largo;
   const distanciaEntreViguetas: number = tipoDeBovedilla.efectivo;
+
   const cantidadDeViguetas = inicial
     ? Math.trunc((ancho - 12) / (distanciaEntreViguetas + 12))
     : Math.trunc(ancho / (distanciaEntreViguetas + 12));
   setCantidadDeViguetas(cantidadDeViguetas);
+
   const largoDeVigueta: number =
     largo % 10 >= 5
       ? Math.round(largo / 10) * 10 + 10
@@ -40,6 +40,7 @@ const Vigueta: React.FC<Props> = ({
   setLargoDeViguetas(largoDeVigueta);
 
   const margenTop: number = (largo - largoDeVigueta) / 2 - 2;
+
   const viguetaStyle = {
     width: "12px",
     "min-width": "12px",
@@ -73,7 +74,7 @@ const Vigueta: React.FC<Props> = ({
     outline: "2px solid black",
   };
 
-  let arrayDeViguetas: any = [];
+  let arrayDeViguetas: Array<JSX.Element> = [];
   for (let i = 0; i < cantidadDeViguetas; i++) {
     arrayDeViguetas[i] = (
       <div className="vigueta" key={i + "Vigueta"} style={viguetaStyle}>
@@ -82,20 +83,13 @@ const Vigueta: React.FC<Props> = ({
     );
   }
 
-  console.log(
-    { mayorLongitud },
-    { menorLongitud },
-    { distanciaEntreViguetas },
-    { cantidadDeViguetas }
-  );
-
   return (
     <div className="viguetasContainer" style={viguetasContainerStyle}>
       <div className="largoDeMedida">{largo / 100 + "m"}</div>
-      <div className="muroExterior"> </div>
+      <div className="muroExterior">{}</div>
       <div className="anchoDeMedida">{ancho / 100 + "m"}</div>
       {inicial ? <div style={viguetaInicial}>{}</div> : <></>}
-      {arrayDeViguetas.map((element: any) => element)}
+      {arrayDeViguetas.map((element: JSX.Element) => element)}
     </div>
   );
 };

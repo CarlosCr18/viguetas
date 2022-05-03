@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
+import html2canvas from "html2canvas";
 
 const ControlesDePlano: React.FC = () => {
   const [valorX, setValorX] = React.useState(0);
@@ -36,7 +37,7 @@ const ControlesDePlano: React.FC = () => {
               setValorX(valorX - 10);
             }}
           >
-            🢄
+            ↖
           </Button>
           <Button
             variant="outline-success"
@@ -45,7 +46,7 @@ const ControlesDePlano: React.FC = () => {
               setValorY(valorY - 10);
             }}
           >
-            🢁
+            ⬆
           </Button>
           <Button
             variant="outline-success"
@@ -55,7 +56,7 @@ const ControlesDePlano: React.FC = () => {
               setValorX(valorX + 10);
             }}
           >
-            🢅
+            ↗
           </Button>
           <Button
             variant="outline-success"
@@ -64,7 +65,7 @@ const ControlesDePlano: React.FC = () => {
               setValorX(valorX - 10);
             }}
           >
-            🢀
+            ⬅
           </Button>
           <Button className="bg-success" variant="secondary" size="lg" disabled>
             {" "}
@@ -76,7 +77,7 @@ const ControlesDePlano: React.FC = () => {
               setValorX(valorX + 10);
             }}
           >
-            🢂
+            ➡
           </Button>
           <Button
             variant="outline-success"
@@ -86,7 +87,7 @@ const ControlesDePlano: React.FC = () => {
               setValorX(valorX - 10);
             }}
           >
-            🢇
+            ↙
           </Button>
           <Button
             variant="outline-success"
@@ -95,7 +96,7 @@ const ControlesDePlano: React.FC = () => {
               setValorY(valorY + 10);
             }}
           >
-            🢃
+            ⬇
           </Button>
           <Button
             variant="outline-success"
@@ -105,12 +106,44 @@ const ControlesDePlano: React.FC = () => {
               setValorX(valorX + 10);
             }}
           >
-            🢆
+            ↘
           </Button>
         </div>
       </div>
+      <Button
+        onClick={() => {
+          const input: any = document.getElementById("plano");
+
+          html2canvas(input).then((canvas) => {
+            document.body.appendChild(canvas);
+            //saveAs(canvas.toDataURL(), "file-name.png");
+          });
+        }}
+      >
+        Guardar plano
+      </Button>
     </div>
   );
 };
+
+export function saveAs(uri: any, filename: any) {
+  var link = document.createElement("a");
+
+  if (typeof link.download === "string") {
+    link.href = uri;
+    link.download = filename;
+
+    //Firefox requires the link to be in the body
+    document.body.appendChild(link);
+
+    //simulate click
+    link.click();
+
+    //remove the link when done
+    document.body.removeChild(link);
+  } else {
+    window.open(uri);
+  }
+}
 
 export default ControlesDePlano;

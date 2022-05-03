@@ -64,7 +64,7 @@ function App() {
       </header>
       <body>
         <ControlesDePlano />
-        <div className="Appvigueta">
+        <div className="Appvigueta" id="plano">
           <Vigueta
             ancho={ancho}
             largo={largo}

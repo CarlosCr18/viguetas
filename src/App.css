@@ -131,7 +131,7 @@ body {
   flex-direction: row-reverse;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  gap: min(5rem, 15vw);
 }
 
 .sliderContainer {

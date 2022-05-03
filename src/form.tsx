@@ -121,8 +121,10 @@ const FormDeViguetas: React.FC<Props> = ({
         <div className="inputsDiv">
           <Form.Label className="labelInput">Tipo de bovedilla</Form.Label>
           <Form.Select
-            onChange={({ target }: any) => {
-              setTipoDeBovedilla(arrayDeTipoDeBovedilla[target.value]);
+            onChange={({ target }) => {
+              setTipoDeBovedilla(
+                arrayDeTipoDeBovedilla[parseInt(target.value)]
+              );
             }}
           >
             {arrayDeTipoDeBovedilla.map((element, index) => {
