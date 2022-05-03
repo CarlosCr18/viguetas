@@ -191,6 +191,12 @@ body {
   grid-template-rows: repeat(3, 1fr);
 }
 
+.botonesParaCrearPlano {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 @media (max-width: 815px) {
   .App-header {
     display: grid;
@@ -201,5 +207,11 @@ body {
   .Appvigueta {
     max-width: 90%;
     transform-origin: right top;
+  }
+  .Appvigueta::after {
+    outline: none !important;
+  }
+  .botonesParaCrearPlano {
+    display: none;
   }
 }

@@ -112,40 +112,40 @@ const ControlesDePlano: React.FC = () => {
           </Button>
         </div>
       </div>
-      <Button
-        onClick={() => {
-          const input: any = document.getElementById("plano");
-          if (document.body.getElementsByTagName("canvas").length > 0) {
-            document.body.removeChild(
-              document.body.getElementsByTagName("canvas")[0]
-            );
-          }
-
-          html2canvas(input).then((canvas) => {
-            document.body.appendChild(canvas);
-            setIsCanvasCreated(true);
-            //saveAs(canvas.toDataURL(), "file-name.png");
-          });
-        }}
-      >
-        Crear imagen del plano
-      </Button>
-      <br></br>
-      <br></br>
-      {isCanvasCreated ? (
+      <div className="botonesParaCrearPlano">
         <Button
           onClick={() => {
-            const canvas = document.body.getElementsByTagName("canvas")[0];
-            const dataURL = canvas.toDataURL("image/jpeg", 1.0);
-            saveAs(dataURL, "plano.jpeg");
-            console.log(document.body.getElementsByTagName("canvas"));
+            const input: any = document.getElementById("plano");
+            if (document.body.getElementsByTagName("canvas").length > 0) {
+              document.body.removeChild(
+                document.body.getElementsByTagName("canvas")[0]
+              );
+            }
+
+            html2canvas(input).then((canvas) => {
+              document.body.appendChild(canvas);
+              setIsCanvasCreated(true);
+              //saveAs(canvas.toDataURL(), "file-name.png");
+            });
           }}
         >
-          Guardar imagen de plano
+          Crear imagen del plano
         </Button>
-      ) : (
-        <></>
-      )}
+        {isCanvasCreated ? (
+          <Button
+            onClick={() => {
+              const canvas = document.body.getElementsByTagName("canvas")[0];
+              const dataURL = canvas.toDataURL("image/jpeg", 1.0);
+              saveAs(dataURL, "plano.jpeg");
+              console.log(document.body.getElementsByTagName("canvas"));
+            }}
+          >
+            Guardar imagen de plano
+          </Button>
+        ) : (
+          <></>
+        )}
+      </div>
     </div>
   );
 };
