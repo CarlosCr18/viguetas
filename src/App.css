@@ -6,6 +6,11 @@
   --escala: 0.5;
   --izquierda: 0;
   --top: 0;
+  --vigueta-container-ancho: 0;
+  --vigueta-container-largo: 0;
+  --margenTop: 0;
+  --largoDeVigueta: 0;
+  --distanciaEntreViguetas: 0;
 }
 body {
   width: 100vw;
@@ -55,6 +60,9 @@ body {
 }
 
 .viguetasContainer {
+  width: var(--vigueta-container-ancho);
+  height: var(--vigueta-container-largo);
+  outline: 2px solid black;
   position: relative;
   display: flex;
 }
@@ -76,6 +84,35 @@ body {
   width: calc(100% + 30px);
   height: calc(100% + 30px);
   outline: solid 2px green;
+}
+
+.viguetaInicial {
+  width: 12px;
+  min-width: 12px;
+  max-width: 12px;
+  height: var(--largoDeVigueta);
+  outline: 2px solid red;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  margin-left: 0;
+  margin-top: var(--margenTop);
+}
+
+.viguetasComunes {
+  width: 12px;
+  min-width: 12px;
+  max-width: 12px;
+  outline: solid 1px red;
+
+  height: var(--largoDeVigueta);
+  outline: 2px solid red;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  margin-left: var(--distanciaEntreViguetas);
+  margin-top: var(--margenTop);
+  font-weight: bold;
 }
 
 .anchoDeMedida {
