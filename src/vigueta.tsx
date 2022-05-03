@@ -41,54 +41,73 @@ const Vigueta: React.FC<Props> = ({
 
   const margenTop: number = (largo - largoDeVigueta) / 2 - 2;
 
-  const viguetaStyle = {
-    width: "12px",
-    "min-width": "12px",
-    "max-width": "12px",
+  document.documentElement.style.setProperty(`--margenTop`, margenTop + "px");
+  document.documentElement.style.setProperty(
+    `--largoDeVigueta`,
+    largoDeVigueta + "px"
+  );
+  document.documentElement.style.setProperty(
+    `--distanciaEntreViguetas`,
+    distanciaEntreViguetas + "px"
+  );
+  document.documentElement.style.setProperty(
+    `--vigueta-container-ancho`,
+    ancho + "px"
+  );
+  document.documentElement.style.setProperty(
+    `--vigueta-container-largo`,
+    largo + "px"
+  );
 
-    height: largoDeVigueta + "px",
-    outline: "2px solid red",
-    display: "grid",
-    placeItems: "center",
-    fontSize: "14px",
-    marginLeft: distanciaEntreViguetas + "px",
-    marginTop: margenTop,
-    fontWeight: "bold",
-  };
-  const viguetaInicial = {
-    width: "12px",
-    "min-width": "12px",
-    "max-width": "12px",
+  // const viguetaStyle = {
+  //   width: "12px",
+  //   "min-width": "12px",
+  //   "max-width": "12px",
 
-    height: largoDeVigueta + "px",
-    outline: "2px solid red",
-    display: "grid",
-    placeItems: "center",
-    fontSize: "14px",
-    marginLeft: 0 + "px",
-    marginTop: margenTop,
-  };
-  const viguetasContainerStyle = {
-    width: ancho + "px",
-    height: largo + "px",
-    outline: "2px solid black",
-  };
+  //   height: largoDeVigueta + "px",
+  //   outline: "2px solid red",
+  //   display: "grid",
+  //   placeItems: "center",
+  //   fontSize: "14px",
+  //   marginLeft: distanciaEntreViguetas + "px",
+  //   marginTop: margenTop,
+  //   fontWeight: "bold",
+  // };
+
+  // const viguetaInicial = {
+  //   width: "12px",
+  //   "min-width": "12px",
+  //   "max-width": "12px",
+  //   height: largoDeVigueta + "px",
+  //   outline: "2px solid red",
+  //   display: "grid",
+  //   placeItems: "center",
+  //   fontSize: "14px",
+  //   marginLeft: 0 + "px",
+  //   marginTop: margenTop,
+  // };
+
+  // const viguetasContainerStyle = {
+  //   width: ancho + "px",
+  //   height: largo + "px",
+  //   outline: "2px solid black",
+  // };
 
   let arrayDeViguetas: Array<JSX.Element> = [];
   for (let i = 0; i < cantidadDeViguetas; i++) {
     arrayDeViguetas[i] = (
-      <div className="vigueta" key={i + "Vigueta"} style={viguetaStyle}>
+      <div className="viguetasComunes" key={i + "Vigueta"}>
         {largoDeVigueta / 100 + " m"}
       </div>
     );
   }
 
   return (
-    <div className="viguetasContainer" style={viguetasContainerStyle}>
+    <div className="viguetasContainer">
       <div className="largoDeMedida">{largo / 100 + "m"}</div>
       <div className="muroExterior">{}</div>
       <div className="anchoDeMedida">{ancho / 100 + "m"}</div>
-      {inicial ? <div style={viguetaInicial}>{}</div> : <></>}
+      {inicial ? <div className="viguetaInicial">{}</div> : <></>}
       {arrayDeViguetas.map((element: JSX.Element) => element)}
     </div>
   );

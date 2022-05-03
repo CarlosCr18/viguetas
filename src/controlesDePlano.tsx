@@ -5,6 +5,8 @@ import html2canvas from "html2canvas";
 const ControlesDePlano: React.FC = () => {
   const [valorX, setValorX] = React.useState(0);
   const [valorY, setValorY] = React.useState(0);
+  const [isCanvasCreated, setIsCanvasCreated] = React.useState(false);
+  const PORCENTAJE_DE_MOVIMIENTO: number = 3;
 
   document.documentElement.style.setProperty(`--top`, valorX + "%");
   document.documentElement.style.setProperty(`--izquierda`, valorY + "%");
@@ -19,7 +21,7 @@ const ControlesDePlano: React.FC = () => {
             id="slider"
             type="range"
             min="30"
-            max="200"
+            max="145"
             onChange={({ target }) => {
               document.documentElement.style.setProperty(
                 `--escala`,
@@ -33,39 +35,39 @@ const ControlesDePlano: React.FC = () => {
             variant="outline-success"
             size="lg"
             onClick={() => {
-              setValorY(valorY - 10);
-              setValorX(valorX - 10);
+              setValorY(valorY - PORCENTAJE_DE_MOVIMIENTO);
+              setValorX(valorX - PORCENTAJE_DE_MOVIMIENTO);
             }}
           >
-            ↖
+            ⭶
           </Button>
           <Button
             variant="outline-success"
             size="lg"
             onClick={() => {
-              setValorY(valorY - 10);
+              setValorY(valorY - PORCENTAJE_DE_MOVIMIENTO);
             }}
           >
-            ⬆
+            ⭱
           </Button>
           <Button
             variant="outline-success"
             size="lg"
             onClick={() => {
-              setValorY(valorY - 10);
-              setValorX(valorX + 10);
+              setValorY(valorY - PORCENTAJE_DE_MOVIMIENTO);
+              setValorX(valorX + PORCENTAJE_DE_MOVIMIENTO);
             }}
           >
-            ↗
+            ⭷
           </Button>
           <Button
             variant="outline-success"
             size="lg"
             onClick={() => {
-              setValorX(valorX - 10);
+              setValorX(valorX - PORCENTAJE_DE_MOVIMIENTO);
             }}
           >
-            ⬅
+            ⭰
           </Button>
           <Button className="bg-success" variant="secondary" size="lg" disabled>
             {" "}
@@ -74,54 +76,76 @@ const ControlesDePlano: React.FC = () => {
             variant="outline-success"
             size="lg"
             onClick={() => {
-              setValorX(valorX + 10);
+              setValorX(valorX + PORCENTAJE_DE_MOVIMIENTO);
             }}
           >
-            ➡
+            ⭲
           </Button>
           <Button
             variant="outline-success"
             size="lg"
             onClick={() => {
-              setValorY(valorY + 10);
-              setValorX(valorX - 10);
+              setValorY(valorY + PORCENTAJE_DE_MOVIMIENTO);
+              setValorX(valorX - PORCENTAJE_DE_MOVIMIENTO);
             }}
           >
-            ↙
+            ⭹
           </Button>
           <Button
             variant="outline-success"
             size="lg"
             onClick={() => {
-              setValorY(valorY + 10);
+              setValorY(valorY + PORCENTAJE_DE_MOVIMIENTO);
             }}
           >
-            ⬇
+            ⭳
           </Button>
           <Button
             variant="outline-success"
             size="lg"
             onClick={() => {
-              setValorY(valorY + 10);
-              setValorX(valorX + 10);
+              setValorY(valorY + PORCENTAJE_DE_MOVIMIENTO);
+              setValorX(valorX + PORCENTAJE_DE_MOVIMIENTO);
             }}
           >
-            ↘
+            ⭸
           </Button>
         </div>
       </div>
       <Button
         onClick={() => {
           const input: any = document.getElementById("plano");
+          if (document.body.getElementsByTagName("canvas").length > 0) {
+            document.body.removeChild(
+              document.body.getElementsByTagName("canvas")[0]
+            );
+          }
 
           html2canvas(input).then((canvas) => {
             document.body.appendChild(canvas);
+            setIsCanvasCreated(true);
             //saveAs(canvas.toDataURL(), "file-name.png");
           });
         }}
       >
-        Guardar plano
+        Crear imagen del plano
       </Button>
+      <br></br>
+      <br></br>
+      {isCanvasCreated ? (
+        <Button
+          onClick={() => {
+            const canvas = document.body.getElementsByTagName("canvas")[0];
+            const dataURL = canvas.toDataURL("image/jpeg", 1.0);
+            saveAs(dataURL, "plano.jpeg");
+            console.log(document.body.getElementsByTagName("canvas"));
+          }}
+        >
+          Guardar imagen de plano
+        </Button>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

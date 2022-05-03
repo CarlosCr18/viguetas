@@ -6,6 +6,11 @@
   --escala: 0.5;
   --izquierda: 0;
   --top: 0;
+  --vigueta-container-ancho: 0;
+  --vigueta-container-largo: 0;
+  --margenTop: 0;
+  --largoDeVigueta: 0;
+  --distanciaEntreViguetas: 0;
 }
 body {
   width: 100vw;
@@ -55,8 +60,13 @@ body {
 }
 
 .viguetasContainer {
+  width: var(--vigueta-container-ancho);
+  height: var(--vigueta-container-largo);
+  border: 1px solid black;
   position: relative;
   display: flex;
+  transform: scale(var(--escala)) translateY(var(--izquierda))
+    translateX(var(--top)) !important;
 }
 
 .viguetasContainer::after {
@@ -75,20 +85,49 @@ body {
   top: -15px;
   width: calc(100% + 30px);
   height: calc(100% + 30px);
-  outline: solid 2px green;
+  border: solid 2px green;
+}
+
+.viguetaInicial {
+  width: 12px;
+  min-width: 12px;
+  max-width: 12px;
+  height: var(--largoDeVigueta);
+  border: 1px solid red;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  margin-left: 0;
+  margin-top: var(--margenTop);
+}
+
+.viguetasComunes {
+  width: 12px;
+  min-width: 12px;
+  max-width: 12px;
+  outline: solid 1px red;
+
+  height: var(--largoDeVigueta);
+  border: 1px solid red;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  margin-left: var(--distanciaEntreViguetas);
+  margin-top: var(--margenTop);
+  font-weight: bold;
 }
 
 .anchoDeMedida {
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translateY(175%) translateX(-50%);
+  transform: translateY(250%) translateX(-50%);
 }
 .largoDeMedida {
   position: absolute;
   top: 50%;
   left: 0;
-  transform: translateX(-150%) translateY(-50%);
+  transform: translateX(-180%) translateY(-50%);
 }
 
 .InformacionContainer {
@@ -101,14 +140,20 @@ body {
 
 .Appvigueta {
   display: grid;
-  max-width: 100%;
-  margin-block: 2rem !important;
+  min-width: 90%;
+  min-height: 100vh;
   margin-inline: 0;
-  place-content: start !important;
+  place-content: center !important;
   place-items: center;
-  padding: 2rem;
-  transform: scale(var(--escala)) translateY(var(--izquierda))
-    translateX(var(--top)) !important;
+  position: relative;
+}
+
+.Appvigueta::after {
+  outline: solid 1px black;
+  position: absolute;
+  width: 60vw;
+  height: 75vh;
+  content: " ";
 }
 
 .tipoDeBovedillaInformacion {

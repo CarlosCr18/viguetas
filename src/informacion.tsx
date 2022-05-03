@@ -34,6 +34,9 @@ const Informacion: React.FC<Props> = ({
     : (area - cantidadDeViguetas * 12 * largo) / (78 * 150);*/
   const cantidadDeBovedillas: number =
     (largoDeVigueta / TipoDeBovedilla.largo) * cantidadDeHileras;
+  const distanciaEntreUltimaViguetaYMuro: number = inicial
+    ? ancho - 12 - cantidadDeViguetas * (TipoDeBovedilla.efectivo + 12)
+    : ancho - cantidadDeViguetas * (TipoDeBovedilla.efectivo + 12);
 
   return (
     <div className="InformacionContainer">
@@ -48,6 +51,10 @@ const Informacion: React.FC<Props> = ({
               largoDeVigueta / 100 +
               "m"
             : cantidadDeViguetas + " piezas de " + largoDeVigueta / 100 + "m"}
+        </p>
+        <p>
+          Distancia entre ultima vigueta y muro:{" "}
+          {distanciaEntreUltimaViguetaYMuro + "cms"}
         </p>
       </div>
       <div className="InformacionMaterialContainer">
