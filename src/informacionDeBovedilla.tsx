@@ -8,6 +8,7 @@ export interface TipoDeBovedilla {
   ancho: number;
   largo: number;
   efectivo: number;
+  url: string;
 }
 export type Props = {
   tipoDeBovedilla: TipoDeBovedilla;
@@ -62,6 +63,7 @@ const InformacionDeBovedilla: React.FC<Props> = ({
             <strong>Efectivo: </strong>
             {TipoDeBovedilla.efectivo} cm
           </p>
+          <img src={TipoDeBovedilla.url} alt="imagen de bovedilla"></img>
         </>
       ) : (
         <></>

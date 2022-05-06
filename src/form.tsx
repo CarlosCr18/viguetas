@@ -1,14 +1,20 @@
 import React from "react";
 import "./App.css";
 import Form from "react-bootstrap/Form";
+import bp9018 from "./bp9018.jpg";
+import bp9013 from "./bp9013.jpg";
+import bp7018 from "./bp7018.jpg";
+import bp7013 from "./bp7013.jpg";
+import bc9018 from "./bc9018.jpg";
+import bc9013 from "./bc9013.jpg";
+import bc7018 from "./bc7018.jpg";
+import bc7013 from "./bc7013.jpg";
 
 export type Props = {
   setAncho(value: number): void;
   setLargo(value: number): void;
   setTipoDeBovedilla(value: object): void;
   setInicial(value: boolean): void;
-  setCantidadDeHileras(value: number): void;
-  cantidadDeViguetas: number;
 };
 
 const FormDeViguetas: React.FC<Props> = ({
@@ -16,8 +22,6 @@ const FormDeViguetas: React.FC<Props> = ({
   setLargo,
   setTipoDeBovedilla,
   setInicial,
-  setCantidadDeHileras,
-  cantidadDeViguetas,
 }) => {
   interface TiposDeBovedilla {
     nombre: string;
@@ -26,6 +30,7 @@ const FormDeViguetas: React.FC<Props> = ({
     ancho: number;
     largo: number;
     efectivo: number;
+    url: string;
   }
   const arrayDeTipoDeBovedilla: Array<TiposDeBovedilla> = [
     {
@@ -35,6 +40,7 @@ const FormDeViguetas: React.FC<Props> = ({
       ancho: 82,
       largo: 150,
       efectivo: 78,
+      url: bp9018,
     },
     {
       nombre: "Bp90x13 13x78x150",
@@ -43,6 +49,7 @@ const FormDeViguetas: React.FC<Props> = ({
       ancho: 82,
       largo: 150,
       efectivo: 78,
+      url: bp9013,
     },
     {
       nombre: "Bp70x18 18x58x300",
@@ -51,6 +58,7 @@ const FormDeViguetas: React.FC<Props> = ({
       ancho: 62,
       largo: 300,
       efectivo: 58,
+      url: bp7018,
     },
     {
       nombre: "Bp70x13 13x58x300",
@@ -59,6 +67,7 @@ const FormDeViguetas: React.FC<Props> = ({
       ancho: 62,
       largo: 300,
       efectivo: 58,
+      url: bp7013,
     },
     {
       nombre: "Bc90x18 18x78x24",
@@ -67,6 +76,7 @@ const FormDeViguetas: React.FC<Props> = ({
       ancho: 82,
       largo: 24,
       efectivo: 78,
+      url: bc9018,
     },
     {
       nombre: "Bc90x13 13x78x24",
@@ -75,6 +85,7 @@ const FormDeViguetas: React.FC<Props> = ({
       ancho: 82,
       largo: 24,
       efectivo: 78,
+      url: bc9013,
     },
     {
       nombre: "Bc70x18 18x58x24",
@@ -83,6 +94,7 @@ const FormDeViguetas: React.FC<Props> = ({
       ancho: 62,
       largo: 24,
       efectivo: 58,
+      url: bc7018,
     },
     {
       nombre: "Bc70x13 13x58x24",
@@ -91,6 +103,7 @@ const FormDeViguetas: React.FC<Props> = ({
       ancho: 62,
       largo: 24,
       efectivo: 58,
+      url: bc7013,
     },
   ];
 
@@ -132,7 +145,7 @@ const FormDeViguetas: React.FC<Props> = ({
             })}
           </Form.Select>
         </div>
-        <div className="inputsDiv">
+        {/* <div className="inputsDiv">
           <Form.Check
             label="Sumar una hilera al presupuesto"
             id="cantidadDeHilerasCheckbox"
@@ -143,7 +156,7 @@ const FormDeViguetas: React.FC<Props> = ({
                 : setCantidadDeHileras(cantidadDeViguetas);
             }}
           />
-        </div>
+        </div> */}
         <div className="inputsDiv">
           <Form.Check
             label="Agregar vigueta Inicial"

@@ -14,6 +14,7 @@ export interface TipoDeBovedilla {
   ancho: number;
   largo: number;
   efectivo: number;
+  url: string;
 }
 
 const initTipoDeBovedilla: TipoDeBovedilla = {
@@ -23,6 +24,7 @@ const initTipoDeBovedilla: TipoDeBovedilla = {
   ancho: 82,
   largo: 150,
   efectivo: 78,
+  url: "/bp9018.jpg",
 };
 
 function App() {
@@ -37,9 +39,14 @@ function App() {
     React.useState<number>(cantidadDeViguetas);
 
   React.useEffect(() => {
-    setCantidadDeHileras(cantidadDeViguetas);
-    return setCantidadDeViguetas(cantidadDeViguetas);
+    setCantidadDeHileras(
+      Math.round(ancho / (tipoDeBovedilla.efectivo + 12) / 0.5) * 0.5
+    );
+    return setCantidadDeHileras(
+      Math.round(ancho / (tipoDeBovedilla.efectivo + 12) / 0.5) * 0.5
+    );
   }, [cantidadDeViguetas]);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -48,8 +55,6 @@ function App() {
           setLargo={setLargo}
           setTipoDeBovedilla={setTipoDeBovedilla}
           setInicial={setViguetaInicial}
-          setCantidadDeHileras={setCantidadDeHileras}
-          cantidadDeViguetas={cantidadDeViguetas}
         />
         <Informacion
           cantidadDeViguetas={cantidadDeViguetas}

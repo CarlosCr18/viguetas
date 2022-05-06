@@ -7,6 +7,7 @@ export interface TipoDeBovedilla {
   ancho: number;
   largo: number;
   efectivo: number;
+  url: string;
 }
 export type Props = {
   cantidadDeViguetas: number;
@@ -27,7 +28,7 @@ const Informacion: React.FC<Props> = ({
   largoDeVigueta,
   cantidadDeHileras,
 }) => {
-  const malla: number = (ancho / 100) * (largo / 100);
+  const malla: number = ((ancho + 30) / 100) * ((largo + 30) / 100);
   /*
   const cantidadDeBovedillas: number = bovedillaDeConcreto
     ? (area - cantidadDeViguetas * 12 * largo) / (58 * 300)
