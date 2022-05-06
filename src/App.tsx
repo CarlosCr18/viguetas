@@ -6,6 +6,7 @@ import FormDeViguetas from "./form";
 import Informacion from "./informacion";
 import InformacionDeBovedilla from "./informacionDeBovedilla";
 import ControlesDePlano from "./controlesDePlano";
+import bp9018 from "./bp9018.jpg";
 
 export interface TipoDeBovedilla {
   nombre: string;
@@ -24,7 +25,7 @@ const initTipoDeBovedilla: TipoDeBovedilla = {
   ancho: 82,
   largo: 150,
   efectivo: 78,
-  url: "/bp9018.jpg",
+  url: bp9018,
 };
 
 function App() {
