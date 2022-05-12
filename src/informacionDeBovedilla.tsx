@@ -16,7 +16,7 @@ export type Props = {
 const InformacionDeBovedilla: React.FC<Props> = ({
   tipoDeBovedilla: TipoDeBovedilla,
 }) => {
-  const [mostrarInformacion, setMostrarInformacion] = React.useState(true);
+  const [mostrarInformacion, setMostrarInformacion] = React.useState(false);
   return (
     <div className="tipoDeBovedillaInformacion">
       <h2>Informacion de Bovedilla</h2>

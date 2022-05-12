@@ -36,21 +36,8 @@ function App() {
   const [viguetaInicial, setViguetaInicial] = React.useState(false);
   const [medidasSonInteriores, setMedidasSonInteriores] = React.useState(true);
   const [mostrarPlano, setMostrarPlano] = React.useState(false);
-  // const [cantidadDeViguetas, setCantidadDeViguetas] = React.useState(0);
-  // const [largoDeVigueta, setLargoDeViguetas] = React.useState(0);
-  // const [cantidadDeHileras, setCantidadDeHileras] =
-  //   React.useState<number>(cantidadDeViguetas);
 
-  // React.useEffect(() => {
-  //   setCantidadDeHileras(
-  //     Math.round(ancho / (tipoDeBovedilla.efectivo + 12) / 0.5) * 0.5
-  //   );
-  //   return setCantidadDeHileras(
-  //     Math.round(ancho / (tipoDeBovedilla.efectivo + 12) / 0.5) * 0.5
-  //   );
-  // }, [cantidadDeViguetas]);
   const offsetDeMedidas: number = medidasSonInteriores ? 0 : 30;
-
   const cantidadDeHileras =
     Math.round(
       (ancho - offsetDeMedidas) / (tipoDeBovedilla.efectivo + 12) / 0.5
@@ -70,7 +57,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <div className="App-header">
         <FormDeViguetas
           setAncho={setAncho}
           setLargo={setLargo}
@@ -89,8 +76,8 @@ function App() {
           cantidadDeHileras={cantidadDeHileras}
         />
         <InformacionDeBovedilla tipoDeBovedilla={tipoDeBovedilla} />
-      </header>
-      <body>
+      </div>
+      <div className="plano">
         <ControlesDePlano
           mostrarPlano={mostrarPlano}
           setMostrarPlano={setMostrarPlano}
@@ -107,7 +94,7 @@ function App() {
             />
           </div>
         )}
-      </body>
+      </div>
     </div>
   );
 }

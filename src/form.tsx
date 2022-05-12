@@ -145,7 +145,11 @@ const FormDeViguetas: React.FC<Props> = ({
             }}
           >
             {arrayDeTipoDeBovedilla.map((element, index) => {
-              return <option value={index}>{element.nombre}</option>;
+              return (
+                <option key={element.nombre + index} value={index}>
+                  {element.nombre}
+                </option>
+              );
             })}
           </Form.Select>
         </div>

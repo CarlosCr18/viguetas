@@ -12,18 +12,9 @@
   --largoDeVigueta: 0;
   --distanciaEntreViguetas: 0;
 }
-body {
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  place-content: center;
-  place-items: center;
-  position: relative;
-  padding-block: 2rem;
-}
 
 .App {
-  width: 100%;
+  width: 100vw;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -31,6 +22,8 @@ body {
 
 .App-header {
   width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
   display: flex;
   padding: 2rem;
   flex-direction: row;
@@ -40,6 +33,25 @@ body {
   color: black;
   gap: 10%;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.plano {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  place-items: center;
+  position: relative;
+  padding-block: 2rem;
+}
+
+table {
+  max-width: 20vw !important;
+}
+
+th {
+  padding: 1rem;
+  outline: solid 1px black;
 }
 
 .inputsContainer {
@@ -99,7 +111,7 @@ body {
   display: grid;
   place-items: center;
   font-size: 14px;
-  margin-left: 0;
+  margin-left: 15px;
   margin-top: var(--margenTop);
 }
 
@@ -107,7 +119,6 @@ body {
   width: 12px;
   min-width: 12px;
   max-width: 12px;
-  outline: solid 1px red;
 
   height: var(--largoDeVigueta);
   border: 1px solid red;
@@ -138,6 +149,7 @@ body {
   align-self: start;
   align-items: center;
   gap: 0.5rem;
+  padding-block: 2rem;
 }
 
 .Appvigueta {
@@ -202,12 +214,51 @@ body {
 }
 
 @media (max-width: 815px) {
+  html,
+  body {
+    max-width: 100vw;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+  }
   .App-header {
+    width: 100%;
     display: grid;
     gap: 2rem;
     place-content: center;
     place-items: center;
   }
+
+  .InformacionContainer {
+    max-width: 100vw;
+    display: grid;
+    place-content: center;
+    place-items: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .tablaDeCotizacion {
+    max-width: 100vw !important;
+    width: 85vw;
+  }
+
+  .tablaDeCotizacion tr,
+  .tablaDeCotizacion th {
+    width: 5rem !important;
+    max-width: 5rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .inputDeCostos {
+    width: 5rem !important;
+    max-width: 5rem;
+    padding: 0;
+    margin: 0;
+  }
+
   .Appvigueta {
     max-width: 90%;
     transform-origin: right top;
