@@ -34,19 +34,39 @@ function App() {
   const [tipoDeBovedilla, setTipoDeBovedilla] =
     React.useState<TipoDeBovedilla>(initTipoDeBovedilla);
   const [viguetaInicial, setViguetaInicial] = React.useState(false);
-  const [cantidadDeViguetas, setCantidadDeViguetas] = React.useState(0);
-  const [largoDeVigueta, setLargoDeViguetas] = React.useState(0);
-  const [cantidadDeHileras, setCantidadDeHileras] =
-    React.useState<number>(cantidadDeViguetas);
+  const [medidasSonInteriores, setMedidasSonInteriores] = React.useState(true);
+  const [mostrarPlano, setMostrarPlano] = React.useState(false);
+  // const [cantidadDeViguetas, setCantidadDeViguetas] = React.useState(0);
+  // const [largoDeVigueta, setLargoDeViguetas] = React.useState(0);
+  // const [cantidadDeHileras, setCantidadDeHileras] =
+  //   React.useState<number>(cantidadDeViguetas);
 
-  React.useEffect(() => {
-    setCantidadDeHileras(
-      Math.round(ancho / (tipoDeBovedilla.efectivo + 12) / 0.5) * 0.5
-    );
-    return setCantidadDeHileras(
-      Math.round(ancho / (tipoDeBovedilla.efectivo + 12) / 0.5) * 0.5
-    );
-  }, [cantidadDeViguetas]);
+  // React.useEffect(() => {
+  //   setCantidadDeHileras(
+  //     Math.round(ancho / (tipoDeBovedilla.efectivo + 12) / 0.5) * 0.5
+  //   );
+  //   return setCantidadDeHileras(
+  //     Math.round(ancho / (tipoDeBovedilla.efectivo + 12) / 0.5) * 0.5
+  //   );
+  // }, [cantidadDeViguetas]);
+  const offsetDeMedidas: number = medidasSonInteriores ? 0 : 30;
+
+  const cantidadDeHileras =
+    Math.round(
+      (ancho - offsetDeMedidas) / (tipoDeBovedilla.efectivo + 12) / 0.5
+    ) * 0.5;
+
+  const distanciaEntreViguetas: number = tipoDeBovedilla.efectivo;
+
+  const cantidadDeViguetas = viguetaInicial
+    ? Math.trunc((ancho - offsetDeMedidas - 12) / (distanciaEntreViguetas + 12))
+    : Math.trunc((ancho - offsetDeMedidas) / (distanciaEntreViguetas + 12));
+
+  const largoDeVigueta: number = !medidasSonInteriores
+    ? Math.floor(largo / 10) * 10
+    : largo % 10 >= 5
+    ? Math.round(largo / 10) * 10 + 10
+    : Math.round(largo / 10) * 10 + 20;
 
   return (
     <div className="App">
@@ -56,11 +76,13 @@ function App() {
           setLargo={setLargo}
           setTipoDeBovedilla={setTipoDeBovedilla}
           setInicial={setViguetaInicial}
+          setMedidasSonInteriores={setMedidasSonInteriores}
+          medidasSonInteriores={medidasSonInteriores}
         />
         <Informacion
           cantidadDeViguetas={cantidadDeViguetas}
-          ancho={ancho}
-          largo={largo}
+          ancho={ancho - offsetDeMedidas}
+          largo={largo - offsetDeMedidas}
           tipoDeBovedilla={tipoDeBovedilla}
           inicial={viguetaInicial}
           largoDeVigueta={largoDeVigueta}
@@ -69,17 +91,22 @@ function App() {
         <InformacionDeBovedilla tipoDeBovedilla={tipoDeBovedilla} />
       </header>
       <body>
-        <ControlesDePlano />
-        <div className="Appvigueta" id="plano">
-          <Vigueta
-            ancho={ancho}
-            largo={largo}
-            tipoDeBovedilla={tipoDeBovedilla}
-            inicial={viguetaInicial}
-            setCantidadDeViguetas={setCantidadDeViguetas}
-            setLargoDeViguetas={setLargoDeViguetas}
-          />
-        </div>
+        <ControlesDePlano
+          mostrarPlano={mostrarPlano}
+          setMostrarPlano={setMostrarPlano}
+        />
+        {mostrarPlano && (
+          <div className="Appvigueta" id="plano">
+            <Vigueta
+              ancho={medidasSonInteriores ? ancho + 30 : ancho}
+              largo={medidasSonInteriores ? largo + 30 : largo}
+              tipoDeBovedilla={tipoDeBovedilla}
+              inicial={viguetaInicial}
+              cantidadDeViguetas={cantidadDeViguetas}
+              largoDeVigueta={largoDeVigueta}
+            />
+          </div>
+        )}
       </body>
     </div>
   );

@@ -15,29 +15,30 @@ export type Props = {
   largo: number;
   tipoDeBovedilla: TipoDeBovedilla;
   inicial: boolean;
-  setCantidadDeViguetas(value: number): void;
-  setLargoDeViguetas(value: number): void;
+  cantidadDeViguetas: number;
+  largoDeVigueta: number;
 };
 const Vigueta: React.FC<Props> = ({
   ancho = 0,
   largo = 0,
   tipoDeBovedilla,
   inicial = false,
-  setCantidadDeViguetas,
-  setLargoDeViguetas,
+  cantidadDeViguetas,
+
+  largoDeVigueta,
 }) => {
   const distanciaEntreViguetas: number = tipoDeBovedilla.efectivo;
 
-  const cantidadDeViguetas = inicial
-    ? Math.trunc((ancho - 12) / (distanciaEntreViguetas + 12))
-    : Math.trunc(ancho / (distanciaEntreViguetas + 12));
-  setCantidadDeViguetas(cantidadDeViguetas);
+  // const cantidadDeViguetas = inicial
+  //   ? Math.trunc((ancho - 12) / (distanciaEntreViguetas + 12))
+  //   : Math.trunc(ancho / (distanciaEntreViguetas + 12));
+  // setCantidadDeViguetas(cantidadDeViguetas);
 
-  const largoDeVigueta: number =
-    largo % 10 >= 5
-      ? Math.round(largo / 10) * 10 + 10
-      : Math.round(largo / 10) * 10 + 20;
-  setLargoDeViguetas(largoDeVigueta);
+  // const largoDeVigueta: number =
+  //   largo % 10 >= 5
+  //     ? Math.round(largo / 10) * 10 + 10
+  //     : Math.round(largo / 10) * 10 + 20;
+  // setLargoDeViguetas(largoDeVigueta);
 
   const margenTop: number = (largo - largoDeVigueta) / 2 - 2;
 

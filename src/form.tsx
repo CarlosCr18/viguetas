@@ -15,6 +15,8 @@ export type Props = {
   setLargo(value: number): void;
   setTipoDeBovedilla(value: object): void;
   setInicial(value: boolean): void;
+  setMedidasSonInteriores(value: boolean): void;
+  medidasSonInteriores: boolean;
 };
 
 const FormDeViguetas: React.FC<Props> = ({
@@ -22,6 +24,8 @@ const FormDeViguetas: React.FC<Props> = ({
   setLargo,
   setTipoDeBovedilla,
   setInicial,
+  setMedidasSonInteriores,
+  medidasSonInteriores,
 }) => {
   interface TiposDeBovedilla {
     nombre: string;
@@ -157,16 +161,29 @@ const FormDeViguetas: React.FC<Props> = ({
             }}
           />
         </div> */}
-        <div className="inputsDiv">
-          <Form.Check
-            label="Agregar vigueta Inicial"
-            id="viguetaInicial"
-            type="checkbox"
-            onChange={({ target }) => {
-              setInicial(target.checked);
-            }}
-          />
-        </div>
+        <Form.Check
+          label={<strong>Agregar vigueta Inicial</strong>}
+          id="viguetaInicial"
+          type="checkbox"
+          onChange={({ target }) => {
+            setInicial(target.checked);
+          }}
+        />
+        <Form.Check
+          checked={medidasSonInteriores}
+          label={
+            medidasSonInteriores ? (
+              <strong>Las medidas son interiores</strong>
+            ) : (
+              <strong>Las medidas son exteriores</strong>
+            )
+          }
+          type="switch"
+          id="medidasSonInteriores"
+          onChange={({ target }) => {
+            setMedidasSonInteriores(target.checked);
+          }}
+        />
       </div>
     </Form>
   );
