@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.css";
 import Vigueta from "./vigueta";
 import FormDeViguetas from "./form";
 import Informacion from "./informacion";
-import InformacionDeBovedilla from "./informacionDeBovedilla";
 import ControlesDePlano from "./controlesDePlano";
 import bp9018 from "./bp9018.jpg";
 
@@ -75,7 +74,6 @@ function App() {
           largoDeVigueta={largoDeVigueta}
           cantidadDeHileras={cantidadDeHileras}
         />
-        <InformacionDeBovedilla tipoDeBovedilla={tipoDeBovedilla} />
       </div>
       <div className="plano">
         <ControlesDePlano

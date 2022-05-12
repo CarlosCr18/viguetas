@@ -1,6 +1,7 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 import TablaDeInformacion from "./tablaDeInformacion";
+import InformacionDeBovedilla from "./informacionDeBovedilla";
 
 export interface TipoDeBovedilla {
   nombre: string;
@@ -87,7 +88,7 @@ const Informacion: React.FC<Props> = ({
         }}
       />
       {mostrarInformacionDelProyecto && (
-        <>
+        <div className="informacionDelProyecto">
           <div className="InformacionMaterialContainer">
             <h3>Viguetas</h3>
             <p>
@@ -121,7 +122,7 @@ const Informacion: React.FC<Props> = ({
             <p>{"Area: " + malla + " m^2"}</p>
             <p>{"Cantidad: " + (malla * 1.1).toFixed(2) + " m^2"}</p>
           </div>
-        </>
+        </div>
       )}
       <Form.Check
         checked={mostrarTablaDeCotizacion}
@@ -135,6 +136,8 @@ const Informacion: React.FC<Props> = ({
       {mostrarTablaDeCotizacion && (
         <TablaDeInformacion arrayDeInformacion={arrayDeInformacion} />
       )}
+
+      <InformacionDeBovedilla tipoDeBovedilla={TipoDeBovedilla} />
     </div>
   );
 };

@@ -19,17 +19,9 @@ const InformacionDeBovedilla: React.FC<Props> = ({
   const [mostrarInformacion, setMostrarInformacion] = React.useState(false);
   return (
     <div className="tipoDeBovedillaInformacion">
-      <h2>Informacion de Bovedilla</h2>
-
       <Form.Check
         checked={mostrarInformacion}
-        label={
-          mostrarInformacion ? (
-            <strong>Mostrando informacion</strong>
-          ) : (
-            <strong>Ocultando informacion</strong>
-          )
-        }
+        label={<strong>Informacion de Bovedilla</strong>}
         type="switch"
         id="tipoDeBovedillaInformacionShow"
         onChange={({ target }) => {

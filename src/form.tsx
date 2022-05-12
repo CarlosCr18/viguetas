@@ -166,28 +166,34 @@ const FormDeViguetas: React.FC<Props> = ({
           />
         </div> */}
         <Form.Check
-          label={<strong>Agregar vigueta Inicial</strong>}
+          label={"Agregar vigueta Inicial"}
           id="viguetaInicial"
           type="checkbox"
           onChange={({ target }) => {
             setInicial(target.checked);
           }}
         />
-        <Form.Check
-          checked={medidasSonInteriores}
-          label={
-            medidasSonInteriores ? (
-              <strong>Las medidas son interiores</strong>
-            ) : (
-              <strong>Las medidas son exteriores</strong>
-            )
-          }
-          type="switch"
-          id="medidasSonInteriores"
-          onChange={({ target }) => {
-            setMedidasSonInteriores(target.checked);
-          }}
-        />
+        <div className="radiosButtonsDeMedidas">
+          <strong>Las medidas son:</strong>
+          <Form.Check
+            checked={medidasSonInteriores}
+            type="radio"
+            label={"Interiores"}
+            id="medidasSonInteriores"
+            onChange={() => {
+              setMedidasSonInteriores(true);
+            }}
+          />
+          <Form.Check
+            checked={!medidasSonInteriores}
+            label={"Exteriores"}
+            type="radio"
+            id="medidasSonExteriores"
+            onChange={() => {
+              setMedidasSonInteriores(false);
+            }}
+          />
+        </div>
       </div>
     </Form>
   );

@@ -66,6 +66,7 @@ const TablaDeInformacion: React.FC<tablaProps> = ({ arrayDeInformacion }) => {
                   value={arrayDeInputsDeCostos[index]}
                   type="number"
                   min="0"
+                  step=".01"
                   onChange={({ target }) => {
                     let tempArrayDeInputsDeCostos: number[] = [
                       ...arrayDeInputsDeCostos,
