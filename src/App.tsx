@@ -37,10 +37,11 @@ function App() {
   const [mostrarPlano, setMostrarPlano] = React.useState(false);
 
   const offsetDeMedidas: number = medidasSonInteriores ? 0 : 30;
-  const cantidadDeHileras =
+  const cantidadDeHileras = +(
     Math.round(
-      (ancho - offsetDeMedidas) / (tipoDeBovedilla.efectivo + 12) / 0.5
-    ) * 0.5;
+      (ancho - offsetDeMedidas) / (tipoDeBovedilla.efectivo + 12) / 0.01
+    ) * 0.01
+  ).toFixed(2);
 
   const distanciaEntreViguetas: number = tipoDeBovedilla.efectivo;
 

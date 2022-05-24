@@ -65,14 +65,14 @@ const TablaDeInformacion: React.FC<tablaProps> = ({ arrayDeInformacion }) => {
                   className="inputDeCostos"
                   value={arrayDeInputsDeCostos[index]}
                   type="number"
-                  min="0"
-                  step=".01"
+                  min="0.0"
+                  step="0.01"
                   onChange={({ target }) => {
                     let tempArrayDeInputsDeCostos: number[] = [
                       ...arrayDeInputsDeCostos,
                     ];
 
-                    let itemDeArrayDeInputsDeCostos: number = parseInt(
+                    let itemDeArrayDeInputsDeCostos: number = parseFloat(
                       target.value
                     );
                     tempArrayDeInputsDeCostos[index] =
@@ -121,7 +121,7 @@ const TablaDeInformacion: React.FC<tablaProps> = ({ arrayDeInformacion }) => {
           <th>Precio por m^2</th>
           <th></th>
           <th>
-            {sumaTotalDePrecios +
+            {sumaTotalDePrecios.toFixed(2) +
               " / " +
               (arrayDeInformacion[2].cantidad / 1.1).toFixed(2)}
           </th>

@@ -42,7 +42,9 @@ const Informacion: React.FC<Props> = ({
     ? (area - cantidadDeViguetas * 12 * largo) / (58 * 300)
     : (area - cantidadDeViguetas * 12 * largo) / (78 * 150);*/
   const cantidadDeBovedillas: number =
-    (largoDeVigueta / TipoDeBovedilla.largo) * cantidadDeHileras;
+    TipoDeBovedilla.largo < 100
+      ? Math.floor((largoDeVigueta / TipoDeBovedilla.largo) * cantidadDeHileras)
+      : (largoDeVigueta / TipoDeBovedilla.largo) * cantidadDeHileras;
   const distanciaEntreUltimaViguetaYMuro: number = inicial
     ? ancho - 12 - cantidadDeViguetas * (TipoDeBovedilla.efectivo + 12)
     : ancho - cantidadDeViguetas * (TipoDeBovedilla.efectivo + 12);

@@ -129,6 +129,7 @@ th {
   margin-left: var(--distanciaEntreViguetas);
   margin-top: var(--margenTop);
   font-weight: bold;
+  white-space: nowrap;
 }
 
 .anchoDeMedida {
