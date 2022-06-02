@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import html2canvas from "html2canvas";
 import Form from "react-bootstrap/Form";
+import arrow from "./arrowicon.png";
 
 export type Props = {
   mostrarPlano: boolean;
@@ -81,7 +82,7 @@ const ControlesDePlano: React.FC<Props> = ({
                   setValorX(valorX - PORCENTAJE_DE_MOVIMIENTO);
                 }}
               >
-                ⭶
+                <img className="arrowImg leftTop" src={arrow} alt="⭶" />
               </Button>
               <Button
                 variant="outline-success"
@@ -90,7 +91,7 @@ const ControlesDePlano: React.FC<Props> = ({
                   setValorY(valorY - PORCENTAJE_DE_MOVIMIENTO);
                 }}
               >
-                ⭱
+                <img className="arrowImg top" src={arrow} alt="⭱" />
               </Button>
               <Button
                 variant="outline-success"
@@ -100,7 +101,7 @@ const ControlesDePlano: React.FC<Props> = ({
                   setValorX(valorX + PORCENTAJE_DE_MOVIMIENTO);
                 }}
               >
-                ⭷
+                <img className="arrowImg rightTop" src={arrow} alt="⭷" />
               </Button>
               <Button
                 variant="outline-success"
@@ -109,7 +110,7 @@ const ControlesDePlano: React.FC<Props> = ({
                   setValorX(valorX - PORCENTAJE_DE_MOVIMIENTO);
                 }}
               >
-                ⭰
+                <img className="arrowImg" src={arrow} alt="⭰" />
               </Button>
               <Button
                 className="bg-success"
@@ -126,7 +127,7 @@ const ControlesDePlano: React.FC<Props> = ({
                   setValorX(valorX + PORCENTAJE_DE_MOVIMIENTO);
                 }}
               >
-                ⭲
+                <img className="arrowImg right" src={arrow} alt="⭲" />
               </Button>
               <Button
                 variant="outline-success"
@@ -136,7 +137,7 @@ const ControlesDePlano: React.FC<Props> = ({
                   setValorX(valorX - PORCENTAJE_DE_MOVIMIENTO);
                 }}
               >
-                ⭹
+                <img className="arrowImg leftBottom" src={arrow} alt="⭹" />
               </Button>
               <Button
                 variant="outline-success"
@@ -145,7 +146,7 @@ const ControlesDePlano: React.FC<Props> = ({
                   setValorY(valorY + PORCENTAJE_DE_MOVIMIENTO);
                 }}
               >
-                ⭳
+                <img className="arrowImg bottom" src={arrow} alt="⭳" />
               </Button>
               <Button
                 variant="outline-success"
@@ -155,7 +156,7 @@ const ControlesDePlano: React.FC<Props> = ({
                   setValorX(valorX + PORCENTAJE_DE_MOVIMIENTO);
                 }}
               >
-                ⭸
+                <img className="arrowImg rightBottom" src={arrow} alt="⭸" />
               </Button>
             </div>
           </div>

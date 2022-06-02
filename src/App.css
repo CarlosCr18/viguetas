@@ -223,6 +223,36 @@ th {
   gap: 1rem;
 }
 
+.arrowImg {
+  max-width: 25px;
+  max-height: 25px;
+}
+
+.botonesContainer > button:hover > .arrowImg {
+  filter: brightness(1) invert(1) sepia(0.5) hue-rotate(100deg) saturate(200%);
+}
+
+.leftTop {
+  transform: rotate(45deg);
+}
+.top {
+  transform: rotate(90deg);
+}
+.rightTop {
+  transform: rotate(135deg);
+}
+.right {
+  transform: rotate(180deg);
+}
+.rightBottom {
+  transform: rotate(225deg);
+}
+.bottom {
+  transform: rotate(270deg);
+}
+.leftBottom {
+  transform: rotate(315deg);
+}
 @media (max-width: 815px) {
   html,
   body {
@@ -278,5 +308,9 @@ th {
   }
   .botonesParaCrearPlano {
     display: none;
+  }
+  .arrowImg {
+    max-width: 20px;
+    max-height: 20px;
   }
 }
