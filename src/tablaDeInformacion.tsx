@@ -59,7 +59,7 @@ const TablaDeInformacion: React.FC<tablaProps> = ({ arrayDeInformacion }) => {
           return (
             <tr key={index + element.material + ""}>
               <th>{element.material}</th>
-              <th>{element.cantidad}</th>
+              <th>{Math.round(element.cantidad)}</th>
               <th>
                 <input
                   className="inputDeCostos"

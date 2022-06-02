@@ -51,8 +51,6 @@ function App() {
 
   const largoDeVigueta: number = !medidasSonInteriores
     ? Math.floor(largo / 10) * 10
-    : largo % 10 >= 5
-    ? Math.round(largo / 10) * 10 + 10
     : Math.round(largo / 10) * 10 + 20;
 
   return (

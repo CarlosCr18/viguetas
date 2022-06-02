@@ -121,7 +121,7 @@ const Informacion: React.FC<Props> = ({
           </div>
           <div className="InformacionMaterialContainer">
             <h3>Malla</h3>
-            <p>{"Area: " + malla + " m^2"}</p>
+            <p>{"Area: " + malla.toFixed(2) + " m^2"}</p>
             <p>{"Cantidad: " + (malla * 1.1).toFixed(2) + " m^2"}</p>
           </div>
         </div>
